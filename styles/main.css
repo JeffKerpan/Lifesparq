@@ -10,7 +10,6 @@
 nav ul {
   list-style-type: none;
   margin: 0;
-  /*padding-right: 5%;*/
   align-self: auto;
 }
 
@@ -31,8 +30,11 @@ a {
   height: 7vh;
   display: flex;
   align-items: center;
-  margin-top: 1%;
   color: white;
+}
+
+.noMargin {
+  margin: 0;
 }
 
 .parallaxBox {
@@ -40,7 +42,7 @@ a {
   height: 86vh;
 
   /* Create the parallax scrolling effect */
-  /*background-attachment: fixed;*/
+  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -58,6 +60,7 @@ a {
   color: #0c3c60;
   font-weight: bold;
   font-size: 3em;
+  text-align: center;
 }
 
 .blue {
@@ -65,7 +68,8 @@ a {
 }
 
 .red {
-  background-color: red;
+  font-weight: bolder;
+  color: red;
 }
 
 .green {
@@ -79,9 +83,21 @@ a {
 
 .testimonial {
   border: 1px solid black;
-  height: 30vh;
-  width: 20vw;
+  height: 300px;
+  width: 250px;
   background-color: white;
-  opacity: 0.6;
+  opacity: 0.8;
   border-radius: 3%;
+}
+
+.centerText {
+  text-align: center;
+}
+
+.extraSpace {
+  margin: 2%;
+}
+
+input {
+  margin: 1%;
 }
