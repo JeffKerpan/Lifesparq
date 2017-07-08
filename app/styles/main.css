@@ -1,0 +1,87 @@
+.myHeader {
+  background-color: #0c3c60;
+  color: white;
+  height: 7vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  /*padding-right: 5%;*/
+  align-self: auto;
+}
+
+nav ul li {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer {
+  background-color: #0c3c60;
+  height: 7vh;
+  display: flex;
+  align-items: center;
+  margin-top: 1%;
+  color: white;
+}
+
+.parallaxBox {
+
+  height: 86vh;
+
+  /* Create the parallax scrolling effect */
+  /*background-attachment: fixed;*/
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.competitive-swimmer {
+  background-image: url('../images/competitive-swimmer.jpg');
+}
+
+.baseball-park {
+  background-image: url('../images/at&t-park.jpg');
+}
+
+.bannerText {
+  color: #0c3c60;
+  font-weight: bold;
+  font-size: 3em;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.fancyScript {
+  font-family: 'Indie Flower', cursive;
+  margin: 1%;
+}
+
+.testimonial {
+  border: 1px solid black;
+  height: 30vh;
+  width: 20vw;
+  background-color: white;
+  opacity: 0.6;
+  border-radius: 3%;
+}
