@@ -48,6 +48,13 @@ a {
   background-size: cover;
 }
 
+.aboutUsPicture {
+  border: 1px solid black;
+  height: 35vh;
+  width: 25vw;
+  margin: 1%;
+}
+
 .competitive-swimmer {
   background-image: url('../images/competitive-swimmer.jpg');
 }
