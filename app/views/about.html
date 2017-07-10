@@ -1,1 +1,21 @@
-<p>This is the about view.</p>
+<md-content class="md-padding" layout-xs="column" layout="row" layout-wrap>
+  <div flex-xs flex-gt-xs="50" layout="row" ng-repeat="employee in about.employees" class="employeeCard">
+    <md-card flex="100" md-theme="dark-grey" md-theme-watch>
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">
+            {{ employee.name }}
+          </span>
+          <span class="md-subhead">
+            {{ employee.info }}
+          </span>
+        </md-card-title-text>
+        <md-card-title-media>
+          <div class="md-media-lg card-media">
+            <img src="{{ employee.pic }}">
+          </div>
+        </md-card-title-media>
+      </md-card-title>
+    </md-card>
+  </div>
+</md-content>

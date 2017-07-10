@@ -20,7 +20,7 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $mdThemingProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -35,5 +35,7 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+      $mdThemingProvider
+      .theme('dark-grey').backgroundPalette('grey').dark();
   });
 })();
