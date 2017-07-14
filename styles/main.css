@@ -48,6 +48,12 @@ a {
   background-size: cover;
 }
 
+.coverPhoto {
+  height: 35vh;
+  background-position: center;
+  background-size: cover;
+}
+
 .aboutUsPicture {
   border: 1px solid black;
   height: 35vh;
@@ -61,6 +67,10 @@ a {
 
 .baseball-park {
   background-image: url('../images/at&t-park.jpg');
+}
+
+.fenway {
+  background-image: url('../images/fenway-park.jpg');
 }
 
 .bannerText {
@@ -88,6 +98,8 @@ a {
   margin: 1%;
 }
 
+/*need to figure out better way to size testimonials */
+
 .testimonial {
   border: 1px solid black;
   height: 300px;
@@ -109,12 +121,16 @@ input {
   margin: 1%;
 }
 
-/*.loginButtons {
-  height: 75vh;
-}*/
-
 .signupButton {
   border: 1px solid black;
   padding: 2%;
   margin: 1%;
+}
+
+a {
+  cursor: pointer;
+}
+
+label {
+  overflow: visible;
 }

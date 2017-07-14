@@ -1,25 +1,46 @@
 'use strict';
 
 angular.module('lifesparqApp')
-  .controller('loginCtrl', function ($scope, $mdDialog) {
+  .controller('loginCtrl', function ($scope, $mdDialog, $http, $location) {
     $scope.showSingleUserSignup = function(ev) {
-    $mdDialog.show({
-      controller: dialogController,
-      templateUrl: 'signupFormSingle.tmpl.html',
-      parent: angular.element(document.body),
-      targetEvent: ev,
-      clickOutsideToClose:true
-    });
+      $mdDialog.show({
+        controller: userController,
+        templateUrl: 'signupFormSingle.tmpl.html',
+        parent: angular.element(document.body),
+        targetEvent: ev,
+        clickOutsideToClose:true
+      });
   };
+    $scope.showTeamSignup = function(ev) {
+      $mdDialog.show({
+        controller: userController,
+        templateUrl: 'signupFormTeam.tmpl.html',
+        parent: angular.element(document.body),
+        targetEvent: ev,
+        clickOutsideToClose: true
+      });
+    }
+    $scope.showMemberLogin = function (ev) {
+      $mdDialog.show({
+        controller: userController,
+        templateUrl: 'memberLogin.tmpl.html',
+        parent: angular.element(document.body),
+        targetEvent: ev,
+        clickOutsideToClose: true
+      })
+    }
 
   $scope.user = {
     firstName: '',
     lastName: '',
-    email: '',
+    emailAddress: '',
     password: ''
   };
 
-  function dialogController($scope, $mdDialog) {
+  $scope.error = '';
+
+
+  function userController($scope, $mdDialog) {
 
     $scope.hide = () => {
       $mdDialog.hide();
@@ -33,8 +54,38 @@ angular.module('lifesparqApp')
       $mdDialog.hide(answer);
     }
 
-    $scope.test = function() {
-      console.log('yippee');
+    $scope.loginUser = function() {
+      $http({
+        url: 'http://localhost:3000/compare',
+        method: 'POST',
+        data: {
+          emailAddress: $scope.user.emailAddress,
+          password: $scope.user.password
+        }
+      }).then(response => {
+        if (response.data.error) {
+          $scope.error = response.data.message;
+        } else if (response.data.success) {
+          $location.path('/profile');
+        } else {
+          console.log('Sad shit');
+        }
+      })
     }
-}
-  });
+
+    $scope.submitUser = function(coachBoolean) {
+      $http({
+        url: 'http://localhost:3000/new',
+        method: 'POST',
+        data: {
+          emailAddress: $scope.user.emailAddress,
+          password: $scope.user.password,
+          coach: coachBoolean
+        }
+      }).then(response => {
+        console.log(response);
+      })
+    }
+
+  }
+});
