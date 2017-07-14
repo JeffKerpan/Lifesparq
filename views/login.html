@@ -1,0 +1,54 @@
+<div layout="column" layout-align="center center">
+  <h1 class="noMargin">Signup</h1>
+  <h4 class="fancyScript red">Take your life to the next level.</h4>
+</div>
+
+<div layout="row" layout-xs="column" layout-align="space-around center" class="loginButtons">
+
+  <div class='signupButton' layout="column" layout-align="space-around center">
+    <h1 class="blue">Sign up for a team account</h1>
+    <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h5>
+    <md-button class="md-raised md-primary">Sign up a team as a Coach</md-button>
+  </div>
+
+  <div class='signupButton' layout="column" layout-align="space-around center">
+    <h1 class="blue">Sign up for an individual account</h1>
+    <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h5>
+    <md-button class="md-raised md-primary" ng-click="showSingleUserSignup($event)">Sign up for an individual account</md-button>
+  </div>
+
+</div>
+
+<script type="text/ng-template" id="signupFormSingle.tmpl.html">
+  <md-dialog>
+    <md-dialog-content>
+      <form name="signUpFormSingle">
+
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>First Name</label>
+          <input ng-model="user.firstName">
+        </md-input-container>
+
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Last Name</label>
+          <input ng-model="user.lastName">
+        </md-input-container>
+
+        <md-input-container class="md-block">
+          <label>Email Address</label>
+          <input ng-model="user.email">
+        </md-input-container>
+
+        <md-input-container class="md-block">
+          <label>Password</label>
+          <input ng-model="user.password" password>
+        </md-input-container>
+
+        <button ng-click="test()">button</button>
+
+      </form>
+
+    </md-dialog-content>
+  </md-dialog>
+
+</script>

@@ -2,14 +2,6 @@
 
 'use strict';
 
-/**
- * @ngdoc overview
- * @name lifesparqApp
- * @description
- * # lifesparqApp
- *
- * Main module of the application.
- */
 angular
   .module('lifesparqApp', [
     'ngMaterial',
@@ -32,10 +24,18 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
+      .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'loginCtrl',
+        controllerAs: 'login'
+      })
       .otherwise({
         redirectTo: '/'
       });
       $mdThemingProvider
       .theme('dark-grey').backgroundPalette('grey').dark();
+      $mdThemingProvider.theme('docs-dark', 'default')
+        .primaryPalette('yellow')
+        .dark();
   });
 })();
