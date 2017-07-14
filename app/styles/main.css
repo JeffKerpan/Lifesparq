@@ -71,12 +71,12 @@ a {
 }
 
 .blue {
-  background-color: blue;
+  color: #0c3c60;
 }
 
 .red {
   font-weight: bolder;
-  color: red;
+  color: #d51f2b;
 }
 
 .green {
@@ -106,5 +106,15 @@ a {
 }
 
 input {
+  margin: 1%;
+}
+
+/*.loginButtons {
+  height: 75vh;
+}*/
+
+.signupButton {
+  border: 1px solid black;
+  padding: 2%;
   margin: 1%;
 }
