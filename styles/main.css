@@ -1,3 +1,7 @@
+/*
+Major styles displayed on all pages
+*/
+
 .myHeader {
   background-color: #0c3c60;
   color: white;
@@ -23,6 +27,7 @@ nav ul li {
 a {
   color: white;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .footer {
@@ -33,9 +38,9 @@ a {
   color: white;
 }
 
-.noMargin {
-  margin: 0;
-}
+/*
+Styles for photos
+*/
 
 .parallaxBox {
 
@@ -73,6 +78,19 @@ a {
   background-image: url('../images/fenway-park.jpg');
 }
 
+.profilePicture {
+  border: 5px solid white;
+  width: 250px;
+  height: 250px;
+  margin-left: 2%;
+  margin-top: 2%;
+  margin-right: 2%;
+}
+
+/*
+Styles for text
+*/
+
 .bannerText {
   color: #0c3c60;
   font-weight: bold;
@@ -93,9 +111,17 @@ a {
   background-color: green;
 }
 
+.white {
+  color: white;
+}
+
 .fancyScript {
   font-family: 'Indie Flower', cursive;
   margin: 1%;
+}
+
+.centerText {
+  text-align: center;
 }
 
 /*need to figure out better way to size testimonials */
@@ -107,10 +133,6 @@ a {
   background-color: white;
   opacity: 0.8;
   border-radius: 3%;
-}
-
-.centerText {
-  text-align: center;
 }
 
 .extraSpace {
@@ -127,10 +149,22 @@ input {
   margin: 1%;
 }
 
-a {
-  cursor: pointer;
-}
-
 label {
   overflow: visible;
+}
+
+.noMargin {
+  margin: 0;
+}
+
+/*
+Styles specific to profile page
+*/
+
+.md-sidenav-right {
+  height: 100vh;
+}
+
+.raisedIndex {
+  z-index: 1;
 }
