@@ -68,7 +68,7 @@ angular.module('lifesparqApp')
         } else if (response.data.success) {
           $location.path('/profile');
         } else {
-          console.log('Sad shit');
+          console.log('That login didn\'t work');
         }
       })
     }
@@ -78,6 +78,8 @@ angular.module('lifesparqApp')
         url: 'http://localhost:3000/new',
         method: 'POST',
         data: {
+          firstName: $scope.user.firstName,
+          lastName: $scope.user.lastName,
           emailAddress: $scope.user.emailAddress,
           password: $scope.user.password,
           coach: coachBoolean

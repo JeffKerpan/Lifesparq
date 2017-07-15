@@ -1,10 +1,39 @@
 <div class="coverPhoto fenway" layout="row">
+  <div layout-align="start center">
+    <img src="http://placekitten.com/152/152" class="profilePicture raisedIndex">
+  </div>
+  <div layout="column" style="margin: 2%" layout-align="end">
+    <h1 class="noMargin white">Your name here</h1>
+    <h5 class="white">Your team name here</h5>
+  </div>
 </div>
 
-<div layout="row" class="container">
-  <img src="http://placekitten.com/152/152" layout-align="center center">
-  <div layout="column" style="margin: 2%">
-    <h1 class="noMargin">Your name here</h1>
-    <h5>Your team name here</h5>
+<div layout="row" class="container" layout-align="space-between center">
+
+  <div>
+    <img class="parallaxBox" src="../images/graph.jpg" style="margin-left: 12%">
+  </div>
+  <div layout="column">
+    <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right" md-is-locked-open="$mdMedia('gt-md')" flex>
+
+      <!-- <md-toolbar class="md-theme-light">
+        <h1 class="md-toolbar-tools">Look at all these cool things you'll be able to do ... eventually</h1>
+      </md-toolbar> -->
+      <md-content ng-controller="rightCtrl">
+        <form layout="column" layout-align="center center">
+          <md-button class="md-raised md-primary">Look</md-button>
+          <md-button class="md-raised md-primary">At</md-button>
+          <md-button class="md-raised md-primary">All</md-button>
+          <md-button class="md-raised md-primary">These</md-button>
+          <md-button class="md-raised md-primary">Buttons</md-button>
+          <md-button class="md-raised md-primary">That</md-button>
+          <md-button class="md-raised md-primary">Don't</md-button>
+          <md-button class="md-raised md-primary">Do</md-button>
+          <md-button class="md-raised md-primary">Anything</md-button>
+          <md-button class="md-raised md-primary">Yet</md-button>
+        </form>
+      </md-content>
+
+    </md-sidenav>
   </div>
 </div>
