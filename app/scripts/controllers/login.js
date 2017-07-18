@@ -73,7 +73,7 @@ angular.module('lifesparqApp')
       })
     }
 
-    $scope.submitUser = function(coachBoolean) {
+    $scope.submitUser = function() {
       $http({
         url: 'http://localhost:3000/newUser',
         method: 'POST',
@@ -81,8 +81,7 @@ angular.module('lifesparqApp')
           firstName: $scope.user.firstName,
           lastName: $scope.user.lastName,
           emailAddress: $scope.user.emailAddress,
-          password: $scope.user.password,
-          coach: coachBoolean
+          password: $scope.user.password
         }
       }).then(response => {
         $localStorage.default({
@@ -90,6 +89,13 @@ angular.module('lifesparqApp')
         })
         $location.path('/moreinfo');
       })
+    }
+
+    $scope.submitCoach = function() {
+      $localStorage.firstName = $scope.user.firstName;
+      $localStorage.lastName = $scope.user.lastName;
+      $localStorage.emailAddress = $scope.user.emailAddress;
+      $location.path('/moreinfo');
     }
 
   }
