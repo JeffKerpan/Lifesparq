@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('lifesparqApp')
-  .controller('loginCtrl', function ($scope, $mdDialog, $http, $location) {
+  .controller('loginCtrl', function ($scope, $mdDialog, $http, $location, $localStorage) {
     $scope.showSingleUserSignup = function(ev) {
       $mdDialog.show({
         controller: userController,
@@ -75,7 +75,7 @@ angular.module('lifesparqApp')
 
     $scope.submitUser = function(coachBoolean) {
       $http({
-        url: 'http://localhost:3000/new',
+        url: 'http://localhost:3000/newUser',
         method: 'POST',
         data: {
           firstName: $scope.user.firstName,
@@ -85,7 +85,10 @@ angular.module('lifesparqApp')
           coach: coachBoolean
         }
       }).then(response => {
-        console.log(response);
+        $localStorage.default({
+          emailAddress: $scope.user.emailAddress
+        })
+        $location.path('/moreinfo');
       })
     }
 
