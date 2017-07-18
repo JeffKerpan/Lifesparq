@@ -1,10 +1,10 @@
 <form>
-  <input type="text" placeholder="First Name">
-  <input type="text" placeholder="Last Name">
-  <input type="text" placeholder="Email">
-  <input type="text" placeholder="Password">
-  <input type="text" placeholder="Team Name">
-  <select name="sports">
+  <input type="text" placeholder="First Name" ng-model="coachAndTeam.firstName">
+  <input type="text" placeholder="Last Name" ng-model="coachAndTeam.lastName">
+  <input type="text" placeholder="Email" ng-model="coachAndTeam.emailAddress">
+  <input type="text" placeholder="Password" ng-model="coachAndTeam.password">
+  <input type="text" placeholder="Team Name" ng-model="coachAndTeam.teamName">
+  <select name="sports" ng-model="coachAndTeam.sport">
     <option value="swimming">Swimming</option>
     <option value="cycling">Cycling</option>
     <option value="triathlon">Triathlon</option>
@@ -15,5 +15,5 @@
   <input type="text" placeholder="Team Member First Name">
   <input type="text" placeholder="Team Member Last Name">
   <input type="text" placeholder="Team Member Email">
-  <md-button class="md-raised md-primary">Submit</md-button>
+  <md-button class="md-raised md-primary" ng-click="submitCoach()">Submit</md-button>
 </form>
