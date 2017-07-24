@@ -1,19 +1,78 @@
 <form>
-  <input type="text" placeholder="First Name" ng-model="coachAndTeam.firstName">
-  <input type="text" placeholder="Last Name" ng-model="coachAndTeam.lastName">
-  <input type="text" placeholder="Email" ng-model="coachAndTeam.emailAddress">
-  <input type="text" placeholder="Password" ng-model="coachAndTeam.password">
-  <input type="text" placeholder="Team Name" ng-model="coachAndTeam.teamName">
-  <select name="sports" ng-model="coachAndTeam.sport">
-    <option value="swimming">Swimming</option>
-    <option value="cycling">Cycling</option>
-    <option value="triathlon">Triathlon</option>
-    <option value="running">Running</option>
-  </select>
+  <md-card-content>
+    <div layout="row">
+      <md-input-container>
+        <input type="text" placeholder="Coach First Name" ng-model="coachAndTeam.firstName">
+      </md-input-container>
+      <md-input-container>
+        <input type="text" placeholder="Coach Last Name" ng-model="coachAndTeam.lastName">
+      </md-input-container>
+      <md-input-container>
+        <input type="text" placeholder="Coach Email" ng-model="coachAndTeam.emailAddress">
+      </md-input-container>
+      <md-input-container>
+        <input type="text" placeholder="Password" ng-model="coachAndTeam.password">
+      </md-input-container>
+    </div>
+    </md-card-content>
+    <md-card-content>
+      <div layout="row">
+      <md-input-container>
+        <input type="text" placeholder="Team Name" ng-model="coachAndTeam.teamName">
+      </md-input-container>
+
+      <md-input-container>
+        <md-select name="sports" ng-model="coachAndTeam.sport">
+          <label>Sport</label>
+          <md-option value="swimming">Swimming</md-option>
+          <md-option value="cycling">Cycling</md-option>
+          <md-option value="triathlon">Triathlon</md-option>
+          <md-option value="running">Running</md-option>
+        </md-select>
+      </div>
+      </md-input-container>
+  </md-card-content>
   <br><br>
 
-  <input type="text" placeholder="Team Member First Name">
-  <input type="text" placeholder="Team Member Last Name">
-  <input type="text" placeholder="Team Member Email">
-  <md-button class="md-raised md-primary" ng-click="submitCoach()">Submit</md-button>
+  <md-button ng-click="showForm()" ng-if="!showUpload">Click to upload a spreadsheet</md-button>
+
+  <md-button ng-if="!manualEntry" ng-click="showForm('manualEntry')">Click to enter manually</md-button>
+
+  <br>
+
+  <input id="file" ng-if="showUpload" type="file" accept=".csv" multiple="false" />
+
+  <button ng-click="test()">Test</button>
+
+  <br>
+
+  <div ng-if="manualEntry">
+    <input type="text" placeholder="Team Member First Name" ng-model="teamMember.firstName">
+    <input type="text" placeholder="Team Member Last Name" ng-model="teamMember.lastName">
+    <input type="text" placeholder="Team Member Email" ng-model="teamMember.emailAddress">
+    <md-button class="md-raised md-primary" ng-click="addTeamMember()">Add team member</md-button>
+  </div>
+
+  <br>
+
+  <h3 ng-if="fullTeam.length">Team members: </h3>
+  <ul ng-repeat="member in fullTeam">
+    <li>
+      <p>{{ member.firstName }} {{ member.lastName }}</p>
+    </li>
+  </ul>
+  <md-button class="md-raised md-primary" ng-click="add()">Submit</md-button>
+</form>
+
+<form action="/your-server-side-code" method="POST">
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+    data-amount="999"
+    data-name="Stripe.com"
+    data-description="Widget"
+    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+    data-locale="auto"
+    data-zip-code="true">
+  </script>
 </form>
