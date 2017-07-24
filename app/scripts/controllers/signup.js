@@ -78,7 +78,7 @@ angular.module('lifesparqApp')
           url: 'https://api.mailgun.net/v3/sandboxa61564483d514e1294fe7186a33ea09d.mailgun.org/messages',
           method: 'POST',
           data: {
-            api: 'key-66411c98e08459dd66618740f49845b9',
+            api: PROCESS.ENV.MAILGUNKEY,
             from: 'Mailgun Sandbox <postmaster@sandboxa61564483d514e1294fe7186a33ea09d.mailgun.org>',
             to: member.emailAddress,
             subject: `Welcome, ${member.firstName}`,
