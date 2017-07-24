@@ -11,7 +11,7 @@ Major styles displayed on all pages
   justify-content: space-between;
 }
 
-nav ul {
+ul {
   list-style-type: none;
   margin: 0;
   align-self: auto;
@@ -32,9 +32,7 @@ a {
 
 .footer {
   background-color: #0c3c60;
-  height: 7vh;
-  display: flex;
-  align-items: center;
+  height: 18vh;
   color: white;
 }
 
@@ -85,6 +83,11 @@ Styles for photos
   margin-left: 2%;
   margin-top: 2%;
   margin-right: 2%;
+}
+
+.socialMedia {
+  height: 3vh;
+  width: 3vh;
 }
 
 /*
@@ -167,4 +170,8 @@ Styles specific to profile page
 
 .raisedIndex {
   z-index: 1;
+}
+
+[md-select] {
+  margin-bottom: 4px;
 }

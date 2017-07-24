@@ -38,5 +38,8 @@
   "scripts": {
     "test": "karma start test/karma.conf.js",
     "gulp": "gulp start:server"
+  },
+  "dependencies": {
+    "xlsx": "^0.10.8"
   }
 }
