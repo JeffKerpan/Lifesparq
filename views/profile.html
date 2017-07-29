@@ -1,10 +1,10 @@
 <div class="coverPhoto fenway" layout="row">
   <div layout-align="start center">
-    <img src="http://placekitten.com/152/152" class="profilePicture raisedIndex">
+    <img src="{{ authenticatedUser.profilePicture }}" class="profilePicture raisedIndex">
   </div>
   <div layout="column" style="margin: 2%" layout-align="end">
-    <h1 class="noMargin white">Your name here</h1>
-    <h5 class="white">Your team name here</h5>
+    <h1 class="noMargin white">{{ authenticatedUser.firstName }} {{ authenticatedUser.lastName }}</h1>
+    <h5 class="white">{{ authenticatedUser.teamName }}</h5>
   </div>
 </div>
 
@@ -21,7 +21,10 @@
       </md-toolbar> -->
       <md-content ng-controller="rightCtrl">
         <form layout="column" layout-align="center center">
-          <md-button class="md-raised md-primary">Look</md-button>
+          <md-input-container>
+            <input type="file" id="file-input"/>
+          </md-input-container>
+          <md-button class="md-raised md-primary" ng-click="saveImage()">Look</md-button>
           <md-button class="md-raised md-primary">At</md-button>
           <md-button class="md-raised md-primary">All</md-button>
           <md-button class="md-raised md-primary">These</md-button>

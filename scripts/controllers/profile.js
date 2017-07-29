@@ -1,12 +1,20 @@
 'use strict';
 
 angular.module('lifesparqApp')
-  .controller('profileCtrl', function ($scope, $mdSidenav, $timeout, $log) {
+  .controller('profileCtrl', function ($scope, $mdSidenav, $timeout, $log, $localStorage) {
     $scope.toggleLeft = buildDelayedToggler('right');
     $scope.toggleRight = buildToggler('right');
     $scope.isOpenRight = function(){
       return $mdSidenav('right').isOpen();
     };
+
+    $scope.authenticatedUser = {
+      firstName: $localStorage.firstName,
+      lastName: $localStorage.lastName,
+      emailAddress: $localStorage.emailAddress,
+      teamName: $localStorage.teamName,
+      profilePicture: $localStorage.profilePicture
+    }
 
     function debounce(func, wait, context) {
       var timer;
@@ -47,7 +55,8 @@ angular.module('lifesparqApp')
           });
       };
     }
-  })
+
+})
   .controller('leftCtrl', function ($scope, $timeout, $mdSidenav, $log) {
     $scope.close = function () {
       // Component lookup should always be available since we are not using `ng-if`

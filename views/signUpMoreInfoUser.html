@@ -1,0 +1,53 @@
+<md-content class="md-padding" layout-xs="column" layout="row" layout-wrap>
+  <form flex-xs flex-gt-xs="50">
+    <md-card-content>
+      <div layout="row">
+        <md-input-container>
+          <input type="text" placeholder="First Name" ng-model="user.firstName">
+        </md-input-container>
+        <md-input-container>
+          <input type="text" placeholder="Last Name" ng-model="user.lastName">
+        </md-input-container>
+        <md-input-container>
+          <input type="text" placeholder="Email" ng-model="user.emailAddress">
+        </md-input-container>
+      </div>
+      </md-card-content>
+      <p class="red">{{ passwordError }}</p>
+      <md-card-content>
+        <div layout="row">
+          <md-input-container>
+            <input type="text" placeholder="Password" ng-model="user.password" id="firstPassword">
+          </md-input-container>
+          <md-input-container>
+            <input type="text" placeholder="Re-enter Password" id="secondPassword" ng-model="secondPassword" ng-change="validatePasswords()">
+          </md-input-container>
+        <md-input-container>
+          <md-select name="sports" ng-model="user.sport">
+            <label>Sport (if applicable)</label>
+            <md-option value="swimming">Swimming</md-option>
+            <md-option value="cycling">Cycling</md-option>
+            <md-option value="triathlon">Triathlon</md-option>
+            <md-option value="running">Running</md-option>
+          </md-select>
+        </div>
+        </md-input-container>
+    </md-card-content>
+
+    <div layout="column">
+      <label for="picture-input">Profile Picture</label>
+      <input type="file" id="picture-input" placeholder="Profile Picture"/>
+    </div>
+
+    <h3 ng-if="fullTeam.length">Team members: </h3>
+    <ul ng-repeat="member in fullTeam">
+      <li>
+        <p>{{ member.firstName }} {{ member.lastName }}</p>
+      </li>
+    </ul>
+    <md-button class="md-raised md-primary" ng-click="submitUser()">Submit</md-button>
+  </form>
+  <div layout="row" flex="50" layout-align="center center">
+    <img src="http://via.placeholder.com/350x350">
+  </div>
+</md-content>

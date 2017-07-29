@@ -28,7 +28,10 @@ angular.module('lifesparqApp')
         targetEvent: ev,
         clickOutsideToClose: true
       })
+      // ModalService.showMemberLogin(ev);
     }
+
+    $localStorage.$reset();
 
   $scope.user = {
     firstName: '',
@@ -38,7 +41,6 @@ angular.module('lifesparqApp')
   };
 
   $scope.error = '';
-
 
   function userController($scope, $mdDialog) {
 
@@ -66,6 +68,12 @@ angular.module('lifesparqApp')
         if (response.data.error) {
           $scope.error = response.data.message;
         } else if (response.data.success) {
+          $localStorage.firstName = response.data.firstName;
+          $localStorage.lastName = response.data.lastName;
+          $localStorage.emailAddress = response.data.emailAddress;
+          $localStorage.teamName = response.data.teamName;
+          $localStorage.profilePicture = response.data.profilePicture;
+          $mdDialog.hide();
           $location.path('/profile');
         } else {
           console.log('That login didn\'t work');
@@ -74,28 +82,19 @@ angular.module('lifesparqApp')
     }
 
     $scope.submitUser = function() {
-      $http({
-        url: 'http://localhost:3000/newUser',
-        method: 'POST',
-        data: {
-          firstName: $scope.user.firstName,
-          lastName: $scope.user.lastName,
-          emailAddress: $scope.user.emailAddress,
-          password: $scope.user.password
-        }
-      }).then(response => {
-        $localStorage.default({
-          emailAddress: $scope.user.emailAddress
-        })
-        $location.path('/moreinfo');
-      })
+      $localStorage.firstName = $scope.user.firstName;
+      $localStorage.lastName = $scope.user.lastName;
+      $localStorage.emailAddress = $scope.user.emailAddress;
+      $mdDialog.hide();
+      $location.path('/moreinfosingle');
     }
 
     $scope.submitCoach = function() {
       $localStorage.firstName = $scope.user.firstName;
       $localStorage.lastName = $scope.user.lastName;
       $localStorage.emailAddress = $scope.user.emailAddress;
-      $location.path('/moreinfo');
+      $mdDialog.hide();
+      $location.path('/moreinfocoach');
     }
 
   }

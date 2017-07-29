@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('lifesparqApp')
-  .controller('signUpCtrl', function ($scope, $mdSidenav, $timeout, $log, $localStorage, $http) {
+  .controller('signUpCoachCtrl', function ($scope, $log, $localStorage, $http) {
     $scope.firstName = $localStorage.firstName;
     $scope.lastName = $localStorage.lastName;
     $scope.emailAddress = $localStorage.emailAddress;
@@ -20,6 +20,8 @@ angular.module('lifesparqApp')
     }
 
     $scope.fullTeam = [];
+    $scope.profilePictureUrl = '';
+    $scope.spreadsheetFile = '';
 
     $scope.teamMember = {
       firstName: '',
@@ -39,11 +41,13 @@ angular.module('lifesparqApp')
       $scope.teamMember.emailAddress = '';
     }
 
-    $scope.submitCoach = function(data) {
+    //Too tired to figure out how to fire this function and send the coach info with the potential spreadsheet, as well as submit the picture to aws. Also this function only works if you do a spreadsheet, not with manual entry.
+
+    $scope.submitCoach = function(teamList, profilePicture) {
       $localStorage.$reset();
       // $scope.sendSignUpEmails($scope.fullTeam);
       $http({
-        url: 'http://localhost:3000/newTeam',
+        url: 'http://localhost:3000/newteam',
         method: 'POST',
         data: {
           teamName: $scope.coachAndTeam.teamName,
@@ -52,15 +56,17 @@ angular.module('lifesparqApp')
       }).then( response => {
         $scope.coachAndTeam.teamId = response.data.id;
         $http({
-          url: 'http://localhost:3000/newCoach',
+          url: 'http://localhost:3000/newuser',
           method: 'POST',
           data: {
+            tableName: 'coaches',
             firstName: $scope.coachAndTeam.firstName,
             lastName: $scope.coachAndTeam.lastName,
             emailAddress: $scope.coachAndTeam.emailAddress,
             password: $scope.coachAndTeam.password,
             teamId: $scope.coachAndTeam.teamId,
-            file: data
+            file: teamList,
+            profilePicture: profilePicture
           }
         }).then(response => {
           console.log(response);
@@ -88,6 +94,7 @@ angular.module('lifesparqApp')
       })
     }
 
+
     $scope.showForm = function (whichForm) {
       if (whichForm === 'manualEntry') {
         $scope.manualEntry = true;
@@ -100,8 +107,9 @@ angular.module('lifesparqApp')
     }
 
     $scope.add = function() {
+      console.log('add');
       if (document.getElementById('file') === null) {
-        $scope.submitCoach();
+        $scope.saveImage();
       } else {
         var f = document.getElementById('file').files[0],
         r = new FileReader();
@@ -109,15 +117,71 @@ angular.module('lifesparqApp')
         r.onloadend = function(e) {
           var data = e.target.result;
 
-          $scope.submitCoach(data);
+          $scope.spreadsheetFile = data;
+          $scope.saveImage();
         }
 
 
         r.readAsBinaryString(f);
       }
-}
+    }
 
-$scope.test = function () {
-  console.log($scope.coachAndTeam);
-}
+  $scope.sendArrayOrFile = function () {
+    console.log('pic', $scope.profilePictureUrl);
+    if ($scope.fullTeam.length) {
+      $scope.submitCoach($scope.fullTeam, $scope.profilePictureUrl);
+    } else {
+      $scope.submitCoach($scope.spreadsheetFile, $scope.profilePictureUrl);
+    }
+  }
+
+  //The next 3 functions exist to upload items to AWS.
+  //This shit only works for posting a picture, need to learn how to remove one.
+
+  $scope.saveImage = function () {
+    const files = document.getElementById('picture-input').files;
+    const file = files[0];
+    if(file === null) {
+      $scope.sendArrayOrFile();
+      return;
+    }
+    $scope.getSignedRequest(file);
+  }
+
+  $scope.getSignedRequest = function (file) {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', `http://localhost:3000/sign-s3?file-name=${file.name}&file-type=${file.type}`);
+    xhr.onreadystatechange = () => {
+      if(xhr.readyState === 4) {
+        if(xhr.status === 200) {
+          const response = JSON.parse(xhr.responseText);
+          $scope.uploadFile(file, response.signedRequest, response.url);
+          $scope.profilePictureUrl = response.url;
+          $scope.sendArrayOrFile();
+        }
+        else {
+          alert('Could not get signed URL.');
+        }
+      }
+    };
+    xhr.send();
+  }
+
+  $scope.uploadFile = function (file, signedRequest, url) {
+    const xhr = new XMLHttpRequest();
+    xhr.open('PUT', signedRequest);
+    xhr.onreadystatechange = () => {
+      if(xhr.readyState === 4) {
+        if(xhr.status === 200) {
+          document.getElementById('preview').src = url;
+          document.getElementById('avatar-url').value = url;
+        }
+        else {
+          alert('Could not upload file.');
+        }
+      }
+    };
+    xhr.send(file);
+  }
+
   });
