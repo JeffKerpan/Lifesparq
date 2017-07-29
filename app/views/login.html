@@ -44,7 +44,7 @@
 
 <script type="text/ng-template" id="signupFormSingle.tmpl.html">
   <md-dialog>
-    <md-dialog-content>
+    <md-dialog-content layout="column" layout-align="center center">
       <form name="signUpFormSingle">
 
         <md-input-container class="md-block" flex-gt-sm>
@@ -60,11 +60,6 @@
         <md-input-container class="md-block">
           <label>Email Address</label>
           <input ng-model="user.emailAddress">
-        </md-input-container>
-
-        <md-input-container class="md-block">
-          <label>Password</label>
-          <input ng-model="user.password" password>
         </md-input-container>
 
         <md-button type="submit" class="md-raised md-primary" ng-click="submitUser()">button</md-button>
@@ -94,11 +89,6 @@
         <md-input-container class="md-block">
           <label>Email Address</label>
           <input ng-model="user.emailAddress">
-        </md-input-container>
-
-        <md-input-container class="md-block">
-          <label>Password</label>
-          <input ng-model="user.password" password>
         </md-input-container>
 
         <md-button class="md-raised md-primary" type="submit" ng-click="submitCoach()">button</md-button>

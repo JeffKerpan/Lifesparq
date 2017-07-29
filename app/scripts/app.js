@@ -35,10 +35,15 @@ angular
         controller: 'profileCtrl',
         controllerAs: 'profile'
       })
-      .when('/moreinfo', {
-        templateUrl: 'views/signUpMoreInfo.html',
-        controller: 'signUpCtrl',
-        controllerAs: 'signup'
+      .when('/moreinfocoach', {
+        templateUrl: 'views/signUpMoreInfoCoach.html',
+        controller: 'signUpCoachCtrl',
+        controllerAs: 'signUpCoach'
+      })
+      .when('/moreinfosingle', {
+        templateUrl: 'views/signUpMoreInfoUser.html',
+        controller: 'signUpUserCtrl',
+        controllerAs: 'signUpUser'
       })
       .otherwise({
         redirectTo: '/'

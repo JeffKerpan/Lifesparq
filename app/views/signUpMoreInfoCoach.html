@@ -18,7 +18,7 @@
     <md-card-content>
       <div layout="row">
       <md-input-container>
-        <input type="text" placeholder="Team Name" ng-model="coachAndTeam.teamName">
+        <input type="text" placeholder="Full Team Name" ng-model="coachAndTeam.teamName">
       </md-input-container>
 
       <md-input-container>
@@ -32,7 +32,9 @@
       </div>
       </md-input-container>
   </md-card-content>
-  <br><br>
+  <div>
+    <img src="http://via.placeholder.com/350x350">
+  </div>
 
   <md-button ng-click="showForm()" ng-if="!showUpload">Click to upload a spreadsheet</md-button>
 
@@ -42,7 +44,7 @@
 
   <input id="file" ng-if="showUpload" type="file" accept=".csv" multiple="false" />
 
-  <button ng-click="test()">Test</button>
+  <!-- <button ng-click="test()">Test</button> -->
 
   <br>
 
@@ -55,6 +57,8 @@
 
   <br>
 
+  <input type="file" id="picture-input" />
+
   <h3 ng-if="fullTeam.length">Team members: </h3>
   <ul ng-repeat="member in fullTeam">
     <li>
@@ -64,7 +68,7 @@
   <md-button class="md-raised md-primary" ng-click="add()">Submit</md-button>
 </form>
 
-<form action="/your-server-side-code" method="POST">
+<!-- <form action="/your-server-side-code" method="POST">
   <script
     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
@@ -75,4 +79,4 @@
     data-locale="auto"
     data-zip-code="true">
   </script>
-</form>
+</form> -->
