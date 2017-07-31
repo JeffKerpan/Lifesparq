@@ -141,7 +141,7 @@ angular.module('lifesparqApp')
   $scope.saveImage = function () {
     const files = document.getElementById('picture-input').files;
     const file = files[0];
-    if(file === null) {
+    if(!file) {
       $scope.sendArrayOrFile();
       return;
     }
