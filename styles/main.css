@@ -2,6 +2,22 @@
 Major styles displayed on all pages
 */
 
+/*
+Trying to make sure the page always fills the screen.
+*/
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+.wrapper {
+  height: 100%;
+}
+
 .myHeader {
   background-color: #0c3c60;
   color: white;
@@ -88,6 +104,10 @@ Styles for photos
 .socialMedia {
   height: 3vh;
   width: 3vh;
+}
+
+.circleImage {
+  border-radius: 50%;
 }
 
 /*
