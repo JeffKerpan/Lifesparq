@@ -41,8 +41,6 @@ angular.module('lifesparqApp')
       $scope.teamMember.emailAddress = '';
     }
 
-    //Too tired to figure out how to fire this function and send the coach info with the potential spreadsheet, as well as submit the picture to aws. Also this function only works if you do a spreadsheet, not with manual entry.
-
     $scope.submitCoach = function(teamList, profilePicture) {
       $localStorage.$reset();
       // $scope.sendSignUpEmails($scope.fullTeam);

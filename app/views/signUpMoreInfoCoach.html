@@ -5,17 +5,22 @@
         <md-input-container>
           <input type="text" placeholder="Coach First Name" ng-model="coachAndTeam.firstName">
         </md-input-container>
+
         <md-input-container>
           <input type="text" placeholder="Coach Last Name" ng-model="coachAndTeam.lastName">
         </md-input-container>
+
         <md-input-container>
           <input type="text" placeholder="Coach Email" ng-model="coachAndTeam.emailAddress">
         </md-input-container>
+
         <md-input-container>
           <input type="text" placeholder="Password" ng-model="coachAndTeam.password">
         </md-input-container>
+
       </div>
       </md-card-content>
+
       <md-card-content>
         <div layout="row">
         <md-input-container>
@@ -30,8 +35,18 @@
             <md-option value="triathlon">Triathlon</md-option>
             <md-option value="running">Running</md-option>
           </md-select>
-        </div>
         </md-input-container>
+
+        <md-input-container>
+          <md-select name="sports" ng-model="coachAndTeam.age">
+            <label>Age-Group</label>
+            <md-option value="children">Children</md-option>
+            <md-option value="high school">High School</md-option>
+            <md-option value="collegiate">Collegiate</md-option>
+            <md-option value="professional">Professional</md-option>
+          </md-select>
+        </md-input-container>
+      </div>
     </md-card-content>
 
     <md-button ng-click="showForm()" ng-if="!showUpload">Click to upload a spreadsheet</md-button>

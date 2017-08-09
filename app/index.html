@@ -5,34 +5,29 @@
     <title>Stuff</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
-    <!-- bower:css -->
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
     <link rel="stylesheet" href="./styles/main.css">
+    <!-- <base href="/"> -->
     <!-- endbuild -->
   </head>
+  <div layout="row" class="myHeader">
+    <h3><a href="#/">&nbsp; Lifesparq</a></h3>
+    <nav>
+      <ul>
+        <li><a href="#/login">Login/Signup &nbsp;</a></li>
+      </ul>
+    </nav>
+  </div>
   <body ng-app="lifesparqApp" ng-cloak>
-    <!--[if lte IE 8]>
+    <!-- <[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+    <[endif]> -->
 
     <!-- Add your site or application content here -->
-    <div layout="row" class="myHeader">
-      <h3><a href="#/">&nbsp; Lifesparq</a></h3>
-      <nav>
-        <ul>
-          <li><a href="#/login">Login/Signup &nbsp;</a></li>
-        </ul>
-      </nav>
-    </div>
 
     <div ng-view>
-      <div class="container"></div>
+      <div class="wrapper"></div>
     </div>
 
     <div class="footer" layout="row" layout-xs="column" layout-align="space-around center">
@@ -64,7 +59,9 @@
           <md-button>Submit</md-button>
         </form>
       </div>
+      <a href="#/superlogin">&nbsp;</a>
     </div>
+  </body>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -83,11 +80,11 @@
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-cookies.min.js">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-cookies.min.js">
         </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-resource.min.js">
         </script>
@@ -100,6 +97,7 @@
   <script src="https://rawgithub.com/gsklee/ngStorage/master/ngStorage.js"></script>
   <script src="https://js.stripe.com/v3/"></script>
   <script src="./scripts/app.js"></script>
+  <script src="./scripts/directives/angular-image-cropper.js"></script>
   <script src="./scripts/controllers/main.js"></script>
   <script src="./scripts/controllers/about.js"></script>
   <script src="./scripts/controllers/login.js"></script>
@@ -108,5 +106,7 @@
   <script src="./scripts/controllers/signUpUser.js"></script>
   <script src="./scripts/directives/spreadSheetReader.js"></script>
   <script src="./scripts/services/ModalService.js"></script>
-</body>
+  <script src="./scripts/controllers/super.js"></script>
+  <script src="./scripts/controllers/upload.js"></script>
+
 </html>

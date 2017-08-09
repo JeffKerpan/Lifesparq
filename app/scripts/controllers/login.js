@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('lifesparqApp')
-  .controller('loginCtrl', function ($scope, $mdDialog, $http, $location, $localStorage) {
+  .controller('loginCtrl', function ($scope, $mdDialog, $http, $location, $localStorage, $cookies) {
     $scope.showSingleUserSignup = function(ev) {
       $mdDialog.show({
         controller: userController,
@@ -68,6 +68,7 @@ angular.module('lifesparqApp')
         if (response.data.error) {
           $scope.error = response.data.message;
         } else if (response.data.success) {
+          $cookies.put('test-cookie-defaults', 'worked');
           $localStorage.firstName = response.data.firstName;
           $localStorage.lastName = response.data.lastName;
           $localStorage.emailAddress = response.data.emailAddress;

@@ -6,16 +6,9 @@ Major styles displayed on all pages
 Trying to make sure the page always fills the screen.
 */
 
-html {
-  height: 100%;
-}
-
-body {
-  height: 100%;
-}
-
 .wrapper {
-  height: 100%;
+  padding: 100%;
+  /*background-color: red;*/
 }
 
 .myHeader {
@@ -27,7 +20,7 @@ body {
   justify-content: space-between;
 }
 
-ul {
+nav ul {
   list-style-type: none;
   margin: 0;
   align-self: auto;
@@ -107,6 +100,8 @@ Styles for photos
 }
 
 .circleImage {
+  width: 40vw;
+  height: 50vh;
   border-radius: 50%;
 }
 
@@ -194,4 +189,8 @@ General helpful classes
 
 .thinBorder {
   border: 1px solid black;
+}
+
+.noCursor {
+  cursor: none;
 }
