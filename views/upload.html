@@ -1,0 +1,14 @@
+<div layout="row">
+    <form>
+      <label for="uploadVideo">Upload video</label>
+      <input type="file" id="uploadVideo">
+      <button ng-click="addVideoToUpload()">Add</button>
+      <button ng-click="saveVideo()">Submit</button>
+    </form>
+  <!-- <div layout="column" ng-if="videosForUpload.length">
+    <h3>Videos you're uploading currently: </h3>
+    <ul>
+      <li ng-repeat="video in videosForUpload">{{ video[0].name }}</li>
+    </ul>
+  </div> -->
+</div>

@@ -1,23 +1,45 @@
 'use strict';
 
 angular.module('lifesparqApp')
-  .controller('signUpUserCtrl', function ($scope, $log, $localStorage, $http) {
+  .controller('signUpUserCtrl', function ($scope, $log, $localStorage, $http, $cookies) {
+
     $scope.firstName = $localStorage.firstName;
     $scope.lastName = $localStorage.lastName;
     $scope.emailAddress = $localStorage.emailAddress;
+
+    $scope.states = ('AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS ' +
+    'MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI ' +
+    'WY').split(' ').map(function(state) {
+        return {abbrev: state};
+      });
 
     $scope.user = {
       firstName: $scope.firstName,
       lastName: $scope.lastName,
       emailAddress: $scope.emailAddress,
       password: '',
-      sport: ''
+      sport: '',
+      address: '',
+      address2: '',
+      city: '',
+      state: '',
+      skillLevel: ''
     }
+
+    $scope.profileImage = '../../images/nathan.jpg';
 
     $scope.secondPassword = '';
 
     $scope.passwordError = '';
 
+    $scope.showPhotoEditor = function () {
+      console.log('yippee kay yay motherfucker');
+      const files = document.getElementById('picture-input').files;
+      const file = files[0];
+
+      $scope.profileImage = file.name;
+      console.log($scope.profileImage);
+    }
 
     $scope.validatePasswords = function () {
       var firstPassword = $scope.user.password;

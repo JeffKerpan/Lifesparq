@@ -1,12 +1,16 @@
 'use strict';
 
 angular.module('lifesparqApp')
-  .controller('profileCtrl', function ($scope, $mdSidenav, $timeout, $log, $localStorage) {
+  .controller('profileCtrl', function ($scope, $mdSidenav, $timeout, $log, $localStorage, $cookies, $location) {
     $scope.toggleLeft = buildDelayedToggler('right');
     $scope.toggleRight = buildToggler('right');
     $scope.isOpenRight = function(){
       return $mdSidenav('right').isOpen();
     };
+
+    if (!$cookies.get('test-cookie-defaults')) {
+      $location.path('/');
+    }
 
     $scope.authenticatedUser = {
       firstName: $localStorage.firstName,
@@ -15,6 +19,9 @@ angular.module('lifesparqApp')
       teamName: $localStorage.teamName,
       profilePicture: $localStorage.profilePicture
     }
+
+    $scope.testing = Base64.encode(firstName);
+    console.log($scope.testing);
 
     function debounce(func, wait, context) {
       var timer;

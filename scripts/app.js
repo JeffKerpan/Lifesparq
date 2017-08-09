@@ -11,9 +11,10 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ngStorage'
+    'ngStorage',
+    'imageCropper'
   ])
-  .config(function ($routeProvider, $mdThemingProvider) {
+  .config(function ($routeProvider, $mdThemingProvider, $cookiesProvider, $locationProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -45,13 +46,31 @@ angular
         controller: 'signUpUserCtrl',
         controllerAs: 'signUpUser'
       })
+      .when('/superlogin', {
+        templateUrl: 'views/superLogin.html',
+        controller: 'superCtrl',
+        controllerAs: 'super'
+      })
+      .when('/upload', {
+        templateUrl: 'views/upload.html',
+        controller: 'uploadCtrl',
+        controllerAs: 'upload'
+      })
       .otherwise({
         redirectTo: '/'
       });
+
+      // $locationProvider.html5Mode(true);
+
       $mdThemingProvider
       .theme('dark-grey').backgroundPalette('grey').dark();
       $mdThemingProvider.theme('docs-dark', 'default')
         .primaryPalette('yellow')
         .dark();
+
+      $cookiesProvider
+      .defaults = {
+        path: '/invalid-path'
+      };
   });
 })();
