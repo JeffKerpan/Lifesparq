@@ -1,3 +1,5 @@
+//This is where the test for cookies is.
+
 'use strict';
 
 angular.module('lifesparqApp')
@@ -20,8 +22,8 @@ angular.module('lifesparqApp')
       profilePicture: $localStorage.profilePicture
     }
 
-    $scope.testing = Base64.encode(firstName);
-    console.log($scope.testing);
+    // $scope.testing = Base64.encode(firstName);
+    // console.log($scope.testing);
 
     function debounce(func, wait, context) {
       var timer;

@@ -33,12 +33,10 @@ angular.module('lifesparqApp')
     $scope.passwordError = '';
 
     $scope.showPhotoEditor = function () {
-      console.log('yippee kay yay motherfucker');
       const files = document.getElementById('picture-input').files;
       const file = files[0];
 
       $scope.profileImage = file.name;
-      console.log($scope.profileImage);
     }
 
     $scope.validatePasswords = function () {
