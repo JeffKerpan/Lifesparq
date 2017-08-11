@@ -68,6 +68,7 @@ angular
         .primaryPalette('yellow')
         .dark();
 
+      //figure out what the hell this does.
       $cookiesProvider
       .defaults = {
         path: '/invalid-path'
