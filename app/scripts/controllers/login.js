@@ -65,20 +65,25 @@ angular.module('lifesparqApp')
           password: $scope.user.password
         }
       }).then(response => {
-        if (response.data.error) {
-          $scope.error = response.data.message;
-        } else if (response.data.success) {
-          $cookies.put('test-cookie-defaults', 'worked');
-          $localStorage.firstName = response.data.firstName;
-          $localStorage.lastName = response.data.lastName;
-          $localStorage.emailAddress = response.data.emailAddress;
-          $localStorage.teamName = response.data.teamName;
-          $localStorage.profilePicture = response.data.profilePicture;
-          $mdDialog.hide();
+        if (response.data) {
+          var date = new Date();
+          date.setTime(date.getTime()+((60*1000)*120));
+          $cookies.put('authToken', response.data, {'expires': date});
           $location.path('/profile');
-        } else {
-          console.log('That login didn\'t work');
         }
+        // else if (response.data.success) {
+        //   $cookies.put('test-cookie-defaults', 'worked');
+        //   $localStorage.firstName = response.data.firstName;
+        //   $localStorage.lastName = response.data.lastName;
+        //   $localStorage.emailAddress = response.data.emailAddress;
+        //   $localStorage.teamName = response.data.teamName;
+        //   $localStorage.profilePicture = response.data.profilePicture;
+        //   $mdDialog.hide();
+        //   $location.path('/profile');
+        // } else {
+        //   console.log('That login didn\'t work');
+        // }
+        console.log(response);
       })
     }
 
