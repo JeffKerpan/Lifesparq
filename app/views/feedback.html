@@ -1,0 +1,56 @@
+<div layout="row" layout-xs="column" layout-align="space-around center" class="loginButtons">
+  <div>
+    <form ng-submit="submit()">
+      <md-input-container class="example-full-width">
+        <input mdInput placeholder="Name" ng-model="user.name">
+      </md-input-container>
+      <md-input-container class="example-full-width">
+        <input mdInput type="email" placeholder="Email" ng-model="user.email">
+      </md-input-container>
+      <div>Overall, how easy is it to use the Lifesparq website?</div>
+      <md-radio-group ng-model="user.overall">
+        <md-radio-button value="efficient">Efficient</md-radio-button>
+        <md-radio-button value="okay">Okay</md-radio-button>
+        <md-radio-button value="clunky">Clunky</md-radio-button>
+      </md-radio-group>
+      <md-input-container  class="example-full-width">
+        <textarea rows="4" md-maxlength="150" placeholder="Comments" ng-model="user.comments">
+        </textarea>
+      </md-input-container>
+      <input type="submit" md-raised-button value="Send Praise"/>
+    </form>
+  </div>
+  <pre>user = {{user | json}}</pre>
+  <pre>master = {{master | json}}</pre>
+
+</div>
+
+
+<!-- <script type="text/ng-template" id="signupFormTeam.tmpl.html">
+  <md-dialog>
+    <md-dialog-content layout="column" layout-align="center center">
+      <form name="signUpFormTeam">
+
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>First Name</label>
+          <input ng-model="user.firstName">
+        </md-input-container>
+
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Last Name</label>
+          <input ng-model="user.lastName">
+        </md-input-container>
+
+        <md-input-container class="md-block">
+          <label>Email Address</label>
+          <input ng-model="user.emailAddress">
+        </md-input-container>
+
+        <md-button class="md-raised md-primary" type="submit" ng-click="submitCoach()">button</md-button>
+
+      </form>
+
+    </md-dialog-content>
+  </md-dialog>
+
+</script> -->
