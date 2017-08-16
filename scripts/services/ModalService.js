@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('lifesparqApp')
-  .service('ModalService' function($mdDialog) {
+  .service('ModalService', function($mdDialog) {
     // $mdDialog.show({
     //   controller: userController,
     //   templateUrl: 'memberLogin.tmpl.html',

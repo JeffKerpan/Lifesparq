@@ -31,6 +31,11 @@ angular
         controller: 'loginCtrl',
         controllerAs: 'login'
       })
+      .when('/feedback', {
+        templateUrl: 'views/feedback.html',
+        controller: 'feedbackCtrl',
+        controllerAs: 'feedback'
+      })
       .when('/profile', {
         templateUrl: 'views/profile.html',
         controller: 'profileCtrl',
