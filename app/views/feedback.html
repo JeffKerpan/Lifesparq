@@ -1,6 +1,6 @@
 <div layout="row" layout-xs="column" layout-align="space-around center" class="loginButtons">
   <div>
-    <form ng-submit="submit()">
+    <form ng-submit="submitFeedback()">
       <md-input-container class="example-full-width">
         <input mdInput placeholder="Name" ng-model="user.name">
       </md-input-container>
@@ -14,7 +14,7 @@
         <md-radio-button value="clunky">Clunky</md-radio-button>
       </md-radio-group>
       <md-input-container  class="example-full-width">
-        <textarea rows="4" md-maxlength="150" placeholder="Comments" ng-model="user.comments">
+        <textarea rows="4" md-maxlength="150" placeholder="Comments" ng-model="user.message">
         </textarea>
       </md-input-container>
       <input type="submit" md-raised-button value="Send Praise"/>
