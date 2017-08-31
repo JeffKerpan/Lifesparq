@@ -8,13 +8,12 @@
 
       this.sendFeed = (feedback) => {
         if (feedback.name && feedback.message) {
+          var token = $cookies.get('Authorization');
+          $http.defaults.headers.common.Authorization = `Bearer ${token}`;
           return $http.post(feedbackUrl + 'feedback',
           {
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': 'Bearer' + $cookies.get('Authorization')
-            },
-            feedback: feedback
+            name: feedback.name,
+            message: feedback.message
           }).then(feedResponse => {
             console.log(feedResponse, 'service');
           })
