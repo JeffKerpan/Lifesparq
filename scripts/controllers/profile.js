@@ -10,10 +10,6 @@ angular.module('lifesparqApp')
       return $mdSidenav('right').isOpen();
     };
 
-    if (!$cookies.get('test-cookie-defaults')) {
-      $location.path('/');
-    }
-
     $scope.authenticatedUser = {
       firstName: $localStorage.firstName,
       lastName: $localStorage.lastName,
