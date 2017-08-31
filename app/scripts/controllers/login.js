@@ -68,7 +68,7 @@ angular.module('lifesparqApp')
         if (response.data) {
           var date = new Date();
           date.setTime(date.getTime()+((60*1000)*120));
-          $cookies.put('authToken', response.data, {'expires': date});
+          $cookies.put('Authorization', `Bearer ${response.data.token}`, {'expires': date});
           $location.path('/profile');
         }
         // else if (response.data.success) {
