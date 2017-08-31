@@ -10,7 +10,10 @@
         if (feedback.name && feedback.message) {
           return $http.post(feedbackUrl + 'feedback',
           {
-            headers: {'Authorization': $cookies.get('Authorization')},
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': 'Bearer' + $cookies.get('Authorization')
+            },
             feedback: feedback
           }).then(feedResponse => {
             console.log(feedResponse, 'service');
