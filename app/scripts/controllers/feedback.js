@@ -24,7 +24,6 @@
       $scope.reset();
 
       $scope.submitFeedback = function() {
-        console.log($scope.user);
         feedbackService.sendFeed($scope.user)
         .then(({ data }) => {
           console.log(data, 'controller');
