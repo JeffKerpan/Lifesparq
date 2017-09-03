@@ -1,37 +1,37 @@
 'use strict';
 
 angular.module('lifesparqApp')
-  .controller('loginCtrl', function ($scope, $mdDialog, $http, $location, $localStorage, $cookies) {
-    $scope.showSingleUserSignup = function(ev) {
-      $mdDialog.show({
-        controller: userController,
-        templateUrl: 'signupFormSingle.tmpl.html',
-        parent: angular.element(document.body),
-        targetEvent: ev,
-        clickOutsideToClose:true
-      });
+.controller('loginCtrl', function ($scope, $mdDialog, $http, $location, $localStorage, $cookies) {
+  $scope.showSingleUserSignup = function(ev) {
+    $mdDialog.show({
+      controller: userController,
+      templateUrl: 'signupFormSingle.tmpl.html',
+      parent: angular.element(document.body),
+      targetEvent: ev,
+      clickOutsideToClose:true
+    });
   };
-    $scope.showTeamSignup = function(ev) {
-      $mdDialog.show({
-        controller: userController,
-        templateUrl: 'signupFormTeam.tmpl.html',
-        parent: angular.element(document.body),
-        targetEvent: ev,
-        clickOutsideToClose: true
-      });
-    }
-    $scope.showMemberLogin = function (ev) {
-      $mdDialog.show({
-        controller: userController,
-        templateUrl: 'memberLogin.tmpl.html',
-        parent: angular.element(document.body),
-        targetEvent: ev,
-        clickOutsideToClose: true
-      })
-      // ModalService.showMemberLogin(ev);
-    }
+  $scope.showTeamSignup = function(ev) {
+    $mdDialog.show({
+      controller: userController,
+      templateUrl: 'signupFormTeam.tmpl.html',
+      parent: angular.element(document.body),
+      targetEvent: ev,
+      clickOutsideToClose: true
+    });
+  }
+  $scope.showMemberLogin = function (ev) {
+    $mdDialog.show({
+      controller: userController,
+      templateUrl: 'memberLogin.tmpl.html',
+      parent: angular.element(document.body),
+      targetEvent: ev,
+      clickOutsideToClose: true
+    })
+    // ModalService.showMemberLogin(ev);
+  }
 
-    $localStorage.$reset();
+  $localStorage.$reset();
 
   $scope.user = {
     firstName: '',
@@ -91,6 +91,6 @@ angular.module('lifesparqApp')
       $mdDialog.hide();
       $location.path('/moreinfocoach');
     }
-
+    
   }
 });

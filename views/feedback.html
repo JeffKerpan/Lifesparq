@@ -20,37 +20,17 @@
       <input type="submit" md-raised-button value="Send Praise"/>
     </form>
   </div>
-  <pre>user = {{user | json}}</pre>
-  <pre>master = {{master | json}}</pre>
 
 </div>
 
-
-<!-- <script type="text/ng-template" id="signupFormTeam.tmpl.html">
+<script type="text/ng-template" id="feedbackSent.tmpl.html">
   <md-dialog>
-    <md-dialog-content layout="column" layout-align="center center">
-      <form name="signUpFormTeam">
-
-        <md-input-container class="md-block" flex-gt-sm>
-          <label>First Name</label>
-          <input ng-model="user.firstName">
-        </md-input-container>
-
-        <md-input-container class="md-block" flex-gt-sm>
-          <label>Last Name</label>
-          <input ng-model="user.lastName">
-        </md-input-container>
-
-        <md-input-container class="md-block">
-          <label>Email Address</label>
-          <input ng-model="user.emailAddress">
-        </md-input-container>
-
-        <md-button class="md-raised md-primary" type="submit" ng-click="submitCoach()">button</md-button>
-
-      </form>
-
+    <md-dialog-content>
+      <div class="md-block"  layout="column" layout-align="center center" flex-gt-sm>
+      </div>
+      <div layout="column" layout-align="center center">
+        <md-button class="md-primary" ng-click="hideConfirm()">{{confirmed}}</md-button>
+      </div>
     </md-dialog-content>
   </md-dialog>
-
-</script> -->
+</script>
