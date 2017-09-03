@@ -14,9 +14,10 @@
           {
             name: feedback.name,
             message: feedback.message
-          }).then(feedResponse => {
-            console.log(feedResponse, 'service');
           })
+          // .then(feedResponse => {
+          //   console.log(feedResponse, 'service');
+          // })
           .catch(err => {
             console.log(err);
           });
