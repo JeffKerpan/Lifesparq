@@ -14,7 +14,7 @@
         <md-radio-button value="clunky">Clunky</md-radio-button>
       </md-radio-group>
       <md-input-container  class="example-full-width">
-        <textarea rows="4" md-maxlength="150" placeholder="Comments" ng-model="user.message">
+        <textarea rows="4" md-maxlength="150" placeholder="Please provide any additional feedback below:" ng-model="user.message">
         </textarea>
       </md-input-container>
       <input type="submit" md-raised-button value="Send Praise"/>
@@ -25,11 +25,11 @@
 
 <script type="text/ng-template" id="feedbackSent.tmpl.html">
   <md-dialog>
-    <md-dialog-content>
-      <div class="md-block"  layout="column" layout-align="center center" flex-gt-sm>
+    <md-dialog-content class="popupMessage">
+      <div class="md-block"  layout="column" layout-align="center center" flex-gt-sm>{{confirmed || 'Your feedback was prolly submitted'}}
       </div>
       <div layout="column" layout-align="center center">
-        <md-button class="md-primary" ng-click="hideConfirm()">{{confirmed}}</md-button>
+        <md-button class="md-primary" ng-click="hideConfirm()">OK!</md-button>
       </div>
     </md-dialog-content>
   </md-dialog>

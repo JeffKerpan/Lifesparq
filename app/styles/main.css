@@ -39,6 +39,15 @@ a {
   cursor: pointer;
 }
 
+.profileLinks {
+  color: blue;
+}
+
+.popupMessage {
+  color: white;
+  background-color: blue;
+}
+
 .footer {
   background-color: #0c3c60;
   min-height: 18vh;
