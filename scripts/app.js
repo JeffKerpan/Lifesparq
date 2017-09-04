@@ -41,6 +41,11 @@ angular
         controller: 'profileCtrl',
         controllerAs: 'profile'
       })
+      .when('/payment', {
+        templateUrl: 'views/payment.html',
+        controller: 'paymentCtrl',
+        controllerAs: 'payment'
+      })
       .when('/moreinfocoach', {
         templateUrl: 'views/signUpMoreInfoCoach.html',
         controller: 'signUpCoachCtrl',
