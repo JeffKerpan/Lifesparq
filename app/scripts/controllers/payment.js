@@ -3,25 +3,29 @@
 
   angular.module('lifesparqApp')
 
-    .controller('paymentCtrl', function ($scope, $mdDialog, $http, $location, $localStorage, $cookies, feedbackService) {
+    .controller('paymentCtrl', function ($scope, $mdDialog, $http, $location, $localStorage, $cookies, paymentService) {
 
-      $scope.confirmed = 'Feedback Sent';
+      $scope.loadStripeForm = function() {
+        paymentService.loadStripeForm();
+      }
 
-      $scope.submitFeedback = function() {
-        feedbackService.sendFeed($scope.user)
-        .then(({ data }) => {
-          $scope.confirmed = data;
-          console.log($scope.confirmed, 'controller');
-          $scope.showFeedbackSent();
-          $location.path('/profile');
+      $scope.loadStripeForm();
 
-        })
-        .catch(err => {
-          console.log(err);
-        });
-      };
+      // $scope.submitFeedback = function() {
+      //   feedbackService.sendFeed($scope.user)
+      //   .then(({ data }) => {
+      //     $scope.confirmed = data;
+      //     console.log($scope.confirmed, 'controller');
+      //     $scope.showFeedbackSent();
+      //     $location.path('/profile');
+      //
+      //   })
+      //   .catch(err => {
+      //     console.log(err);
+      //   });
+      // };
 
-      $scope.showFeedbackSent = function () {
+      $scope.showPaymentSent = function () {
         $mdDialog.show({
           controller: ConfirmController,
           templateUrl: 'feedbackSent.tmpl.html',
