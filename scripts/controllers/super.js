@@ -10,7 +10,7 @@ angular.module('lifesparqApp')
 
     $scope.login = function () {
       $http({
-        url: 'http://stormy-springs-94108.herokuapp.com/super/compare',
+        url: 'https://stormy-springs-94108.herokuapp.com/super/compare',
         method: 'POST',
         data: $scope.user
       }).then(response => {
