@@ -3,7 +3,7 @@
 'use strict';
 
 angular.module('lifesparqApp')
-  .controller('profileCtrl', function ($scope, $mdSidenav, $timeout, $log, $localStorage, $cookies, $location) {
+  .controller('profileCtrl', function ($scope, $mdSidenav, $timeout, $log, $localStorage, $cookies, $location, $http) {
     $scope.toggleLeft = buildDelayedToggler('right');
     $scope.toggleRight = buildToggler('right');
     $scope.isOpenRight = function(){
@@ -11,12 +11,32 @@ angular.module('lifesparqApp')
     };
 
     $scope.authenticatedUser = {
-      firstName: $localStorage.firstName,
-      lastName: $localStorage.lastName,
-      emailAddress: $localStorage.emailAddress,
-      teamName: $localStorage.teamName,
-      profilePicture: $localStorage.profilePicture
+      firstName: '',
+      lastName: '',
+      emailAddress: '',
+      teamName: '',
+      profilePicture: ''
     }
+
+    function getUserInfo() {
+      var token = $cookies.get('Authorization');
+      $http.defaults.headers.common.Authorization = `Bearer ${token}`;
+      return $http.get('https://stormy-springs-94108.herokuapp.com/userinfo')
+      .then(result => {
+        $scope.authenticatedUser = {
+          firstName: result.data.firstName,
+          lastName: result.data.lastName,
+          emailAddress: result.data.emailAddress,
+          teamName: result.data.teamName,
+          profilePicture: result.data.profilePicture
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    }
+
+    getUserInfo();
 
     // $scope.testing = Base64.encode(firstName);
     // console.log($scope.testing);
