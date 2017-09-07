@@ -58,7 +58,7 @@ angular.module('lifesparqApp')
 
     $scope.loginUser = function() {
       $http({
-        url: 'http://localhost:3000/compare',
+        url: 'http://stormy-springs-94108.herokuapp.com/compare',
         method: 'POST',
         data: {
           emailAddress: $scope.user.emailAddress,
@@ -91,6 +91,6 @@ angular.module('lifesparqApp')
       $mdDialog.hide();
       $location.path('/moreinfocoach');
     }
-    
+
   }
 });
