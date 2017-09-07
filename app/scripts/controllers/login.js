@@ -72,7 +72,6 @@ angular.module('lifesparqApp')
           $mdDialog.hide();
           $location.path('/profile');
         }
-        console.log(response);
       })
     }
 
