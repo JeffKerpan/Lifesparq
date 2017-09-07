@@ -66,7 +66,7 @@
         });
       }
 
-      // const feedbackUrl = 'http://stormy-springs-94108.herokuapp.com/';
+      // const feedbackUrl = 'https://stormy-springs-94108.herokuapp.com/';
       //
       // this.sendFeed = (feedback) => {
       //   if (feedback.name && feedback.message) {

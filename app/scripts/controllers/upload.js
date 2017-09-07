@@ -22,7 +22,7 @@ angular.module('lifesparqApp')
 
     $scope.getSignedRequest = function (file) {
       const xhr = new XMLHttpRequest();
-      xhr.open('GET', `http://stormy-springs-94108.herokuapp.com/super/sign-s3?file-name=${file.name}&file-type=${file.type}`);
+      xhr.open('GET', `https://stormy-springs-94108.herokuapp.com/super/sign-s3?file-name=${file.name}&file-type=${file.type}`);
       xhr.onreadystatechange = () => {
         if(xhr.readyState === 4) {
           if(xhr.status === 200) {

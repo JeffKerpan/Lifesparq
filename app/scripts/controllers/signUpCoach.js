@@ -45,7 +45,7 @@ angular.module('lifesparqApp')
       $localStorage.$reset();
       // $scope.sendSignUpEmails($scope.fullTeam);
       $http({
-        url: 'http://stormy-springs-94108.herokuapp.com/newteam',
+        url: 'https://stormy-springs-94108.herokuapp.com/newteam',
         method: 'POST',
         data: {
           teamName: $scope.coachAndTeam.teamName,
@@ -54,7 +54,7 @@ angular.module('lifesparqApp')
       }).then( response => {
         $scope.coachAndTeam.teamId = response.data.id;
         $http({
-          url: 'http://stormy-springs-94108.herokuapp.com/newuser',
+          url: 'https://stormy-springs-94108.herokuapp.com/newuser',
           method: 'POST',
           data: {
             tableName: 'coaches',
@@ -148,7 +148,7 @@ angular.module('lifesparqApp')
 
   $scope.getSignedRequest = function (file) {
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', `http://stormy-springs-94108.herokuapp.com/sign-s3?file-name=${file.name}&file-type=${file.type}`);
+    xhr.open('GET', `https://stormy-springs-94108.herokuapp.com/sign-s3?file-name=${file.name}&file-type=${file.type}`);
     xhr.onreadystatechange = () => {
       if(xhr.readyState === 4) {
         if(xhr.status === 200) {
