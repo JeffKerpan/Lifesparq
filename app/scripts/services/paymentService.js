@@ -4,7 +4,7 @@
   angular.module('lifesparqApp')
     .service('paymentService', function($http, $window, $cookies) {
 
-      var testKey = 'pk_test_jMkpcoWvYd8X52zgFStrIriZ';
+      var testKey = 'pk_test_omrxkYlMQABr18LqgCu4SefL';
       var prodKey = '';
 
       var stripe = Stripe(testKey);
@@ -16,8 +16,7 @@
       this.createStripeForm = () => {
         style = {
           base: {
-            // color: '#32325d',
-            color: 'blue',
+            color: '#2F51FC',
             lineHeight: '24px',
             fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
             fontSmoothing: 'antialiased',
