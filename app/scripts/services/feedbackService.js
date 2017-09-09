@@ -5,12 +5,13 @@
     .service('feedbackService', function($http, $window, $cookies) {
 
       const feedbackUrl = 'https://stormy-springs-94108.herokuapp.com/';
+      const devfeedbackUrl = 'https://localhost:9000/';
 
       this.sendFeed = (feedback) => {
         if (feedback.name && feedback.message) {
           var token = $cookies.get('Authorization');
           $http.defaults.headers.common.Authorization = `Bearer ${token}`;
-          return $http.post(feedbackUrl + 'feedback',
+          return $http.post(devfeedbackUrl + 'feedback',
           {
             name: feedback.name,
             message: feedback.message
