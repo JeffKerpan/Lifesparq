@@ -5,7 +5,7 @@
     .service('feedbackService', function($http, $window, $cookies) {
 
       const feedbackUrl = 'https://stormy-springs-94108.herokuapp.com/';
-      const devfeedbackUrl = 'https://localhost:9000/';
+      const devfeedbackUrl = 'http://localhost:3000/';
 
       this.sendFeed = (feedback) => {
         if (feedback.name && feedback.message) {

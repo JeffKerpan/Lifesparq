@@ -2,7 +2,6 @@
   'use strict';
 
   angular.module('lifesparqApp')
-    // .service('feedbackService')
     .controller('feedbackCtrl', function ($scope, $mdDialog, $http, $location, $localStorage, $cookies, feedbackService) {
 
       $scope.confirmed = 'Feedback Sent';
