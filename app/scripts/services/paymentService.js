@@ -4,6 +4,10 @@
   angular.module('lifesparqApp')
     .service('paymentService', function($http, $window, $cookies) {
 
+      var paymentUrl = '';
+      var devpaymentUrl = 'http://localhost:3000/payment/';
+
+// It's safe to expose these
       var testKey = 'pk_test_omrxkYlMQABr18LqgCu4SefL';
       var prodKey = '';
 
@@ -63,6 +67,22 @@
             }
           });
         });
+      }
+
+      function stripeTokenHandler(token) {
+        if (token.object === "token") {
+          var authToken = $cookies.get('Authorization');
+          $http.defaults.headers.common.Authorization = `Bearer ${authToken}`;
+          return $http.post(devpaymentUrl + 'payment', {
+            stripeToken: token
+          })
+          .then( payResponse => {
+              console.log(payResponse, 'service payed');
+          })
+          .catch( err => {
+            console.log(err, 'service error');
+          })
+        }
       }
 
       // const feedbackUrl = 'https://stormy-springs-94108.herokuapp.com/';

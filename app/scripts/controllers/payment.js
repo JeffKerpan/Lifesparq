@@ -28,7 +28,7 @@
       $scope.showPaymentSent = function () {
         $mdDialog.show({
           controller: ConfirmController,
-          templateUrl: 'feedbackSent.tmpl.html',
+          templateUrl: 'paymentSent.tmpl.html',
           parent: angular.element(document.body),
           locals: {
             confirmed: $scope.confirmed
