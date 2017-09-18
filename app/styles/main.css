@@ -204,6 +204,10 @@ General helpful classes
   cursor: none;
 }
 
+.cursor {
+  cursor: pointer;
+}
+
 /*
 Stripe Form Stlying
 */
