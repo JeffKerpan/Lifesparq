@@ -1,0 +1,8 @@
+<!-- <ul>
+  <li ng-repeat="playlist in allPlaylists" ng-click="showVideos()">{{ playlist.title }}</li>
+</ul> -->
+
+<div ng-repeat="playlist in allPlaylists" ng-class="playlist.id" ng-click="showVideos(playlist)" class="cursor">
+  <h2>{{ playlist.title }}</h2>
+  <p>test</p>
+</div>

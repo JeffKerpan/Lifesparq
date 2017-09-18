@@ -66,6 +66,11 @@ angular
         controller: 'uploadCtrl',
         controllerAs: 'upload'
       })
+      .when('/videos', {
+        templateUrl: 'views/videos.html',
+        controller: 'videosCtrl',
+        controllerAs: 'videos'
+      })
       .otherwise({
         redirectTo: '/'
       });
