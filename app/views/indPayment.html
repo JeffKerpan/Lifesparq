@@ -1,0 +1,40 @@
+<!-- <div layout="row" layout-xs="column" layout-align="space-around center" class="loginButtons"> -->
+
+  <!-- <div layout="column" style="margin: 2%" layout-align="end">
+    <h1 class="noMargin blue">{{ userInfo.firstName }} {{ userInfo.lastName }}</h1>
+    <h5 class="white">{{ userInfo.teamName }}</h5>
+  </div> -->
+
+  <form action="/charge" method="post" id="payment-form">
+    <label>$34
+      <input id="amount" class="field is-empty" type="hidden" value="34"/>
+      <input id="numPeople" class="field is-empty" type="hidden" value="1"/>
+    </label>
+    <div class="form-row">
+      <label for="card-element">
+        Credit or debit card
+      </label>
+      <div id="card-element">
+        <!-- a Stripe Element will be inserted here. -->
+      </div>
+
+      <!-- Used to display Element errors -->
+      <div id="card-errors" role="alert"></div>
+    </div>
+
+    <button>Submit Payment</button>
+  </form>
+
+<!-- </div> -->
+
+<!-- <script type="text/ng-template" id="paymentSent.tmpl.html">
+  <md-dialog>
+    <md-dialog-content class="popupMessage">
+      <div class="md-block"  layout="column" layout-align="center center" flex-gt-sm>{{confirmed || 'Your feedback was prolly submitted'}}
+      </div>
+      <div layout="column" layout-align="center center">
+        <md-button class="md-primary" ng-click="hideConfirm()">OK!</md-button>
+      </div>
+    </md-dialog-content>
+  </md-dialog>
+</script> -->

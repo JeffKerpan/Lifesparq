@@ -41,8 +41,13 @@ angular
         controller: 'feedbackCtrl',
         controllerAs: 'feedback'
       })
-      .when('/payment', {
-        templateUrl: 'views/payment.html',
+      .when('/indPayment', {
+        templateUrl: 'views/indPayment.html',
+        controller: 'paymentCtrl',
+        controllerAs: 'payment'
+      })
+      .when('/teamPayment', {
+        templateUrl: 'views/teamPayment.html',
         controller: 'paymentCtrl',
         controllerAs: 'payment'
       })

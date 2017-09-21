@@ -1,6 +1,15 @@
 <!-- <div layout="row" layout-xs="column" layout-align="space-around center" class="loginButtons"> -->
 
+  <!-- <div layout="column" style="margin: 2%" layout-align="end">
+    <h1 class="noMargin blue">{{ userInfo.firstName }} {{ userInfo.lastName }}</h1>
+    <h5 class="white">{{ userInfo.teamName }}</h5>
+  </div> -->
+
   <form action="/charge" method="post" id="payment-form">
+    <label>$19 x
+      <input id="amount" class="field is-empty" type="hidden" value="19"/>
+      <input id="numPeople" class="field is-empty" type="number" placeholder="1" value="1"/>
+    </label>
     <div class="form-row">
       <label for="card-element">
         Credit or debit card
