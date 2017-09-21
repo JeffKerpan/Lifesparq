@@ -5,7 +5,7 @@
     .service('paymentService', function($http, $window, $cookies) {
 
       var paymentUrl = '';
-      var devpaymentUrl = 'http://localhost:3000/payment/';
+      var devpaymentUrl = 'http://localhost:3000/';
 
 // It's safe to expose these
       var testKey = 'pk_test_omrxkYlMQABr18LqgCu4SefL';
@@ -53,6 +53,7 @@
 
         // Handle form submission
         var form = document.getElementById('payment-form');
+
         form.addEventListener('submit', function(event) {
           event.preventDefault();
 
@@ -69,12 +70,45 @@
         });
       }
 
+      this.authenticatedUser = {
+        firstName: '',
+        lastName: '',
+        emailAddress: '',
+        teamName: '',
+        profilePicture: ''
+      }
+
+      this.getUserInfo = () => {
+        var token = $cookies.get('Authorization');
+        $http.defaults.headers.common.Authorization = `Bearer ${token}`;
+        return $http.get('https://stormy-springs-94108.herokuapp.com/userinfo')
+        .then(result => {
+          this.authenticatedUser = {
+            firstName: result.data.firstName,
+            lastName: result.data.lastName,
+            emailAddress: result.data.emailAddress,
+            teamName: result.data.teamName,
+            profilePicture: result.data.profilePicture
+          }
+          console.log(this.authenticatedUser);
+          return result;
+        })
+        .catch(err => {
+          console.log(err);
+        });
+      }
+
+      this.getUserInfo();
+
       function stripeTokenHandler(token) {
         if (token.object === "token") {
+          var amount = parseInt(document.getElementById('amount').value);
+          var numPeople = parseInt(document.getElementById('numPeople').value);
           var authToken = $cookies.get('Authorization');
           $http.defaults.headers.common.Authorization = `Bearer ${authToken}`;
-          return $http.post(devpaymentUrl + 'payment', {
-            stripeToken: token
+          return $http.post(devpaymentUrl + 'payment/payment', {
+            stripeToken: token,
+            total: amount * numPeople
           })
           .then( payResponse => {
               console.log(payResponse, 'service payed');
