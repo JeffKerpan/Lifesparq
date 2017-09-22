@@ -14,7 +14,7 @@ angular.module('lifesparqApp')
       const files = document.getElementById('uploadVideo').files;
       const file = files[0];
       if(!file) {
-        console.log('shit didn\'t work');
+        console.log('No file found');
         return;
       }
       $scope.getSignedRequest(file);
