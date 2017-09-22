@@ -1,8 +1,7 @@
-<!-- <ul>
-  <li ng-repeat="playlist in allPlaylists" ng-click="showVideos()">{{ playlist.title }}</li>
-</ul> -->
+<select class="cursor" ng-model="tag">
+  <option ng-repeat="tag in allTags">{{ tag.tagName }}</option>
+</select>
+<button ng-click="getVideos(tag)">Submit</button>
 
-<div ng-repeat="playlist in allPlaylists" ng-class="playlist.id" ng-click="showVideos(playlist)" class="cursor">
-  <h2>{{ playlist.title }}</h2>
-  <p>test</p>
+<div class="videoBox">
 </div>
