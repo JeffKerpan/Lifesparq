@@ -1,5 +1,3 @@
-//This is where the test for cookies is.
-
 'use strict';
 
 angular.module('lifesparqApp')
