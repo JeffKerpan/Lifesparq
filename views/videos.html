@@ -1,8 +1,11 @@
-<select class="cursor" ng-model="tag">
-  <option ng-repeat="tag in allTags">{{ tag.tagName }}</option>
+<select class="cursor playlists" ng-model="playlist">
+  <option ng-repeat="playlist in allPlaylists">{{ playlist.playlistName }}</option>
 </select>
-<button ng-click="getVideos(tag)">Submit</button>
+<button ng-click="displayVideos()">Submit</button>
 
 <div class="videoBox">
-  <!-- <section ng-repeat="video in currentVideos">{{video}}</section> -->
+
+  <!-- <video-box></video-box> -->
 </div>
+
+<!-- <iframe class='sproutvideo-playlist' src='http://videos.sproutvideo.com/playlist/0296d6b9158c/a5fc26aafa0ca7b0' width='918' height='360' frameborder='0' allowfullscreen></iframe> -->
