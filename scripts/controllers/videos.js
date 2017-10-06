@@ -3,30 +3,31 @@
 angular.module('lifesparqApp')
   .controller('videosCtrl', function ($scope, $http, $cookies) {
 
-    $scope.allTags = [];
+    $scope.allPlaylists = [];
     $scope.currentPlaylist = null;
-    $scope.tag;
+    $scope.playlist;
     $scope.response = false;
     $scope.currentVideos;
 
-    function getAllTags() {
-      $http.get('http://localhost:3000/sprout/alltags')
+    function getAllPlaylists() {
+      $http.get('http://localhost:3000/sprout/allplaylists')
       .then(result => {
-        console.log('result', result);
-        result.data.tags.forEach((tag) => {
-          var tagObject = {
-            tagName: tag.name,
-            tagId: tag.id
+        result.data.playlists.forEach((playlist) => {
+          var playlistObject = {
+            playlistName: playlist.title,
+            playlistId: playlist.id,
+            embedCode: playlist.embed_code
           }
-          $scope.allTags.push(tagObject);
+          $scope.allPlaylists.push(playlistObject);
         })
+        console.log($scope.allPlaylists);
       })
       .catch(err => {
         console.log(err);
       })
     }
 
-    getAllTags();
+    getAllPlaylists();
 
     $scope.showVideos = function (playlist) {
       if($('.sproutvideo-playlist')) {
@@ -40,29 +41,20 @@ angular.module('lifesparqApp')
       }
     }
 
-    $scope.getVideos = function (tag) {
-      var token = $cookies.get('Authorization');
-      $http.defaults.headers.common.Authorization = `Bearer ${token}`;
-      tag = $scope.tag.split(' ').join('+');
-      $http({
-        url: 'http://localhost:3000/sprout/videosbytag',
-        method: 'POST',
-        data: {tag: tag}
-      })
-      .then(response => {
-        console.log(response);
-        $('.videoBox').empty();
-        $scope.response = true;
-        $scope.currentVideos = response.data;
-        response.data.forEach((video) => {
-          if (video.watched) {
-            video.title = video.title + ' (Watched)';
-          }
-          $('.videoBox').append(`<section>
-            <h3>${video.title}</h3>
-            <div>${video.embed_code}</div>
+    $scope.displayVideos = function () {
+      var name = $('.playlists').val();
+      $scope.allPlaylists.forEach((playlist) => {
+        if (playlist.playlistName === name) {
+          $('.videoBox').empty();
+          $('.videoBox').append(`<section ng-click="addToWatched(playlist.id)">
+            <h3>${name}</h3>
+            <div">${playlist.embedCode}</div>
           </section>`);
-        })
+        }
       })
+    }
+
+    $scope.addToWatched = function (id) {
+      console.log(id);
     }
 });
