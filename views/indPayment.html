@@ -4,7 +4,7 @@
     <h1 class="noMargin blue">{{ userInfo.firstName }} {{ userInfo.lastName }}</h1>
     <h5 class="white">{{ userInfo.teamName }}</h5>
   </div> -->
-
+<div ng-controller="paymentCtrl">
   <form action="/charge" method="post" id="payment-form">
     <label>$34
       <input id="amount" class="field is-empty" type="hidden" value="34"/>
@@ -24,7 +24,7 @@
 
     <button>Submit Payment</button>
   </form>
-
+</div>
 <!-- </div> -->
 
 <!-- <script type="text/ng-template" id="paymentSent.tmpl.html">
