@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Lifesparq</title>
+
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
@@ -15,7 +16,7 @@
     <h3><a href="#/">&nbsp; Lifesparq</a></h3>
     <nav>
       <ul>
-        <li><a href="#/login">Login/Signup &nbsp;</a></li>
+        <li><a href="login">Login/Signup &nbsp;</a></li>
       </ul>
     </nav>
   </div>
@@ -34,7 +35,7 @@
       <h4 class="noMargin">&nbsp; &copy; Lifesparq LLC</h4>
       <div layout="column">
         <a href="/#">Contact Us</a>
-        <a href="#/about">About</a>
+        <a href="about">About</a>
         <a href="/#">Privacy</a>
       </div>
       <div layout="column">
@@ -59,7 +60,7 @@
           <md-button>Submit</md-button>
         </form>
       </div>
-      <a href="#/superlogin">&nbsp;</a>
+      <a href="superlogin">&nbsp;</a>
     </div>
   </body>
 
@@ -93,6 +94,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-touch.min.js">
         </script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+        <script type="text/javascript">
+angular.element(document.getElementsByTagName('head')).append(angular.element('<base href="' + window.location.pathname + '" />'));
+</script>
         <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="

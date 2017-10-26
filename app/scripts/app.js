@@ -80,7 +80,7 @@ angular
         redirectTo: '/'
       });
 
-      // $locationProvider.html5Mode(true);
+      $locationProvider.html5Mode(true);
 
       $mdThemingProvider
       .theme('dark-grey').backgroundPalette('grey').dark();

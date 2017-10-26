@@ -213,7 +213,7 @@ General helpful classes
 }
 
 /*
-Stripe Form Stlying
+Stripe Form Styling
 */
 
 .StripeElement {
@@ -236,4 +236,16 @@ Stripe Form Stlying
 
 .StripeElement--webkit-autofill {
   background-color: #fefde5 !important;
+}
+
+/*
+Profile Menu
+*/
+
+.menudemoBasicUsage .md-menu-demo {
+  padding: 24px;
+}
+
+.menudemoBasicUsage .menu-demo-container {
+  min-height: 200px;
 }
