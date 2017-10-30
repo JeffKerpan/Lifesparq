@@ -1,0 +1,39 @@
+<md-content>
+  <h4>&nbsp; Team: {{ user.teamName }}</h4>
+</md-content>
+<md-content class="md-padding" layout-xs="column" layout="row" layout-wrap>
+  <form flex-xs flex-gt-xs="50">
+    <div layout-gt-sm="row">
+      <md-input-container>
+        <input type="text" placeholder="First Name" ng-model="user.firstName">
+      </md-input-container>
+
+      <md-input-container>
+        <input type="text" placeholder="Last Name" ng-model="user.lastName">
+      </md-input-container>
+
+      <md-input-container>
+        <input type="text" placeholder="Email" ng-model="user.emailAddress">
+      </md-input-container>
+
+    </div>
+  </form>
+</md-content>
+
+<md-content class="md-padding" layout-xs="column" layout="row" layout-wrap>
+  <form flex-xs flex-gt-xs="50">
+    <div layout-gt-sm="row">
+      <md-input-container>
+        <input type="password" placeholder="Password" ng-model="user.password">
+      </md-input-container>
+
+      <md-input-container>
+        <input ng-model="user.birthday" placeholder="Date of Birth"
+        type="date"></input>
+      </md-input-container>
+
+      <md-button class="md-raised md-primary" ng-click="submitUser()">Submit</md-button>
+    </div>
+
+  </form>
+</md-content>

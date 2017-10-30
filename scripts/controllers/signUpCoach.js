@@ -45,7 +45,7 @@ angular.module('lifesparqApp')
       $localStorage.$reset();
       // $scope.sendSignUpEmails($scope.fullTeam);
       $http({
-        url: 'https://stormy-springs-94108.herokuapp.com/newteam',
+        url: 'http://localhost:3000/newteam',
         method: 'POST',
         data: {
           teamName: $scope.coachAndTeam.teamName,
@@ -54,7 +54,7 @@ angular.module('lifesparqApp')
       }).then( response => {
         $scope.coachAndTeam.teamId = response.data.id;
         $http({
-          url: 'https://stormy-springs-94108.herokuapp.com/newuser',
+          url: 'http://localhost:3000/newuser',
           method: 'POST',
           data: {
             tableName: 'coaches',
@@ -105,7 +105,6 @@ angular.module('lifesparqApp')
     }
 
     $scope.add = function() {
-      console.log('add');
       if (document.getElementById('file') === null) {
         $scope.saveImage();
       } else {
@@ -125,7 +124,6 @@ angular.module('lifesparqApp')
     }
 
   $scope.sendArrayOrFile = function () {
-    console.log('pic', $scope.profilePictureUrl);
     if ($scope.fullTeam.length) {
       $scope.submitCoach($scope.fullTeam, $scope.profilePictureUrl);
     } else {
