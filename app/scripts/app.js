@@ -61,6 +61,11 @@ angular
         controller: 'signUpUserCtrl',
         controllerAs: 'signUpUser'
       })
+      .when('/moreinfoteammember/:teamId/:firstName/:lastName', {
+        templateUrl: 'views/moreinfoteammember.html',
+        controller: 'signUpTeamMemberCtrl',
+        controllerAs: 'signUpTeamMember'
+      })
       .when('/superlogin', {
         templateUrl: 'views/superLogin.html',
         controller: 'superCtrl',

@@ -3,9 +3,9 @@
 angular.module('lifesparqApp')
   .controller('signUpUserCtrl', function ($scope, $log, $localStorage, $http, $cookies) {
 
-    $scope.firstName = $localStorage.firstName;
-    $scope.lastName = $localStorage.lastName;
-    $scope.emailAddress = $localStorage.emailAddress;
+    $scope.firstName = $localStorage.firstName || '';
+    $scope.lastName = $localStorage.lastName || '';
+    $scope.emailAddress = $localStorage.emailAddress || '';
 
     $scope.states = ('AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS ' +
     'MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI ' +
@@ -31,6 +31,20 @@ angular.module('lifesparqApp')
     $scope.secondPassword = '';
 
     $scope.passwordError = '';
+
+    $scope.getEmail = function () {
+      // console.log('anything');
+      $http({
+        url: 'http://localhost:3000/moretests',
+        method: 'GET'
+      }).then(data => {
+        console.log(data);
+      }).catch(err => {
+        console.log(err);
+      })
+    }
+
+    $scope.getEmail();
 
     $scope.showPhotoEditor = function () {
       const files = document.getElementById('picture-input').files;

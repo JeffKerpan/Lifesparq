@@ -90,6 +90,10 @@ Styles for photos
   background-image: url('../images/competitive-swimmer.jpg');
 }
 
+.cyclist {
+  background-image: url('../images/cycling.jpg');
+}
+
 .baseball-park {
   background-image: url('../images/at&t-park.jpg');
 }
@@ -166,6 +170,11 @@ Styles for text
   border-radius: 3%;
 }
 
+.threeBoxSizing {
+  height: 300px;
+  width: 250px;
+}
+
 .extraSpace {
   margin: 2%;
 }
@@ -175,7 +184,7 @@ input {
 }
 
 .signupButton {
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   padding: 2%;
   margin: 1%;
 }

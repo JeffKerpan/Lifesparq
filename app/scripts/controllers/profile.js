@@ -6,7 +6,7 @@ angular.module('lifesparqApp')
     function getUserInfo() {
       var token = $cookies.get('Authorization');
       $http.defaults.headers.common.Authorization = `Bearer ${token}`;
-      return $http.get('https://stormy-springs-94108.herokuapp.com/userinfo')
+      return $http.get('http://localhost:3000/userinfo')
       .then(result => {
         $scope.authenticatedUser = {
           firstName: result.data.firstName,

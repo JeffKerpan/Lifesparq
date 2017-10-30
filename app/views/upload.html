@@ -1,14 +1,18 @@
-<div layout="row">
-    <form>
-      <label for="uploadVideo">Upload video</label>
-      <input type="file" id="uploadVideo">
-      <button ng-click="addVideoToUpload()">Add</button>
-      <button ng-click="saveVideo()">Submit</button>
-    </form>
-  <!-- <div layout="column" ng-if="videosForUpload.length">
-    <h3>Videos you're uploading currently: </h3>
-    <ul>
-      <li ng-repeat="video in videosForUpload">{{ video[0].name }}</li>
-    </ul>
-  </div> -->
+<div layout="row" layout-align="space-around start">
+  <div>
+    <div ng-repeat="video in allVideos" class="videos" layout="row" layout-align="space-between center" layout-wrap>
+      <section class="thinBorder cursor" ng-click="showUpload(video)">
+        {{ video.title }}
+      </section>
+    </div>
+    <button ng-if="previous" ng-click="getAllVideos(previousUrl)">Previous Page</button>
+    <button ng-if="next" ng-click="getAllVideos(nextUrl)">Next Page</button>
+  </div>
+  <form ng-if="showUploadInput">
+    <p>Please choose a file to connect with {{ currentTitle }}</p>
+    <input type="file" id="file">
+    <br>
+    <input type="text" id="videoDescription" placeholder="Video Description">
+    <button type="submit" ng-click="postFile(selectedVideo)">Submit</button>
+  </form>
 </div>
