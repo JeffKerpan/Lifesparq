@@ -7,6 +7,25 @@ angular.module('lifesparqApp')
       emailAddress: '',
       password: ''
     }
+    $scope.token = $cookies.get('Authorization');
+
+    $scope.skipLogin = function (token) {
+      $http.defaults.headers.common.Authorization = `Bearer ${token}`;
+      return $http({
+        url: 'http://localhost:3000/super/verify',
+        method: 'POST'
+      })
+      .then(result => {
+        if (result.data === true) {
+          $location.path('/upload');
+        }
+      })
+    }
+
+    if ($scope.token) {
+      console.log($scope.token);
+      $scope.skipLogin($scope.token);
+    }
 
     $scope.login = function () {
       $http({

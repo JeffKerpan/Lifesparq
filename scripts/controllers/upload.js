@@ -23,7 +23,6 @@ angular.module('lifesparqApp')
       })
       .then(result => {
         if (result.data === true) {
-          console.log('true');
           $scope.getAllVideos();
         } else {
           $location.path('/');
@@ -50,11 +49,9 @@ angular.module('lifesparqApp')
 
       $http.get(`http://localhost:3000/sprout/${getUrl}`)
         .then(result => {
-          console.log(result);
           if (result.data.next_page) {
             $scope.next = true;
             $scope.nextUrl = result.data.next_page.split('/')[4];
-            console.log($scope.nextUrl);
           } else {
             $scope.next = false;
           }
